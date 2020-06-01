@@ -16,7 +16,7 @@ templateContent = "".join(open(templateFName, "r").readlines())
 #PCC.Series (STM32L4)
 #ProjectManager.DeviceId (STM32L432KCUx) maybe needs to be STM32L432xx
 projectNameMatcher = re.search("ProjectManager\\.ProjectName=(.+)", projectContent)
-seriesMatcher = re.search("PCC\\.Series=(.+)", projectContent)
+seriesMatcher = re.search("Mcu\\.Family=(.+)", projectContent)
 deviceIdMatcher = re.search("ProjectManager.DeviceId=(.+)", projectContent)
 
 if projectNameMatcher is None:
@@ -24,7 +24,7 @@ if projectNameMatcher is None:
     exit()
 
 if seriesMatcher is None:
-    print("Field PCC.Series not found in config")
+    print("Field Mcu.Family not found in config")
     exit()
 
 if deviceIdMatcher is None:
